@@ -13,6 +13,7 @@ public class SpawnCoins : MonoBehaviour
     private void Start()
     {
         _points = new Transform[_pathPoints.childCount];
+
         for(int i = 0; i < _points.Length; i++)
         {
             _points[i] = _pathPoints.GetChild(i);

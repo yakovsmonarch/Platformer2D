@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MovementPlayer : MonoBehaviour
 {
-    [SerializeField] float _speed;
-    [SerializeField] float _jumpForce;
-
+    [SerializeField] private float _speed;
+    [SerializeField] private float _jumpForce;
+    
     private Rigidbody2D _rigidbody2D;
     private bool _isGround;
 
@@ -30,8 +30,8 @@ public class MovementPlayer : MonoBehaviour
         {
             if(_isGround == true)
             {
-                _rigidbody2D.AddForce(Vector2.up * _jumpForce);
                 _isGround = false;
+                _rigidbody2D.AddForce(Vector2.up * _jumpForce);
             }
         }
     }

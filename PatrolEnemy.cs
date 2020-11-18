@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PatrolEnemy : MonoBehaviour
 {
-    [SerializeField] float _speed;
+    [SerializeField] private float _speed;
 
     private int _direction;
 
