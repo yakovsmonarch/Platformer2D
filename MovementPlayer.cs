@@ -8,10 +8,12 @@ public class MovementPlayer : MonoBehaviour
     [SerializeField] float _jumpForce;
 
     private Rigidbody2D _rigidbody2D;
+    private bool _isGround;
 
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _isGround = true;
     }
 
     private void Update()
@@ -26,7 +28,16 @@ public class MovementPlayer : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
-            _rigidbody2D.AddForce(Vector2.up * _jumpForce);
+            if(_isGround == true)
+            {
+                _rigidbody2D.AddForce(Vector2.up * _jumpForce);
+                _isGround = false;
+            }
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        _isGround = true;
     }
 }
